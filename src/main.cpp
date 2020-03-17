@@ -3,7 +3,10 @@
 
 int main(int argc, char *argv[])
 {
-    std::cout<<" 1 -> "<< convertArabicNumberToRomanNumeral(1) << std::endl;
+    unsigned int arabicNumber;
+    std::cout << "Please enter an arabic number(>0):";
+    std::cin >> arabicNumber;
+    std::cout << arabicNumber <<" -> "<< convertArabicNumberToRomanNumeral(arabicNumber) << std::endl;
     return 0;
 }
 
