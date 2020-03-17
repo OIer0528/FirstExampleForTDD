@@ -1,22 +1,19 @@
 # CMake 最低版本号要求
 cmake_minimum_required(VERSION 3.1)
 
-# 项目信息
-project (FirstExampleForTDD)
-
-# 查找 GTest 库
-find_package(GTest REQUIRED)
-
-# GTest 的头文件
-include_directories(${GTEST_INCLUDE_DIRS})
-
 # 设置C++标准
 set(CMAKE_CXX_STANDARD 14) 
 
-# 指定生成目标
-add_executable(main main.cpp)
+# 项目信息
+set (PROJECT_NAME FirstExampleForTDD)
+project (${PROJECT_NAME})
+set (EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR})
+set (LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
 
-# 链接测试库
-target_link_libraries(main
-        ${GTEST_BOTH_LIBRARIES}
-        pthread )
+message("工程名: " ${PROJECT_NAME})
+message("工程目录: " ${PROJECT_SOURCE_DIR})
+message("编译后可执行程序目录: " ${EXECUTABLE_OUTPUT_PATH})
+message("编译后库程序文件目录: " ${LIBRARY_OUTPUT_PATH})
+
+ADD_SUBDIRECTORY(src)
+ADD_SUBDIRECTORY(test)
